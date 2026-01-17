@@ -1,8 +1,6 @@
 js
 
-document.addEventListener("DOMContentLoaded", function () {
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("year");
+  if (el) el.textContent = new Date().getFullYear();
 });
