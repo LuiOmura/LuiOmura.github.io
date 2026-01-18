@@ -80,3 +80,33 @@ summary{cursor:pointer;font-weight:800}
   .nav-links{gap:10px}
 }
 
+.mobile-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-cta {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0f3a43;
+    z-index: 999;
+  }
+
+  .mobile-cta a {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .mobile-cta a:first-child {
+    background: #0b2c33;
+  }
+}
+
+
