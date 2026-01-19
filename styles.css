@@ -125,6 +125,8 @@ summary{cursor:pointer;font-weight:800}
   font-weight: 800;
   letter-spacing: .2px;
   z-index: 2;
+  display: inline-block;
+  pointer-events: none;
 }
 
 /* Optional polish: slightly taller images on desktop */
