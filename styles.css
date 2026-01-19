@@ -135,3 +135,10 @@ summary{cursor:pointer;font-weight:800}
   }
 }
 
+.ba img {
+  transition: transform 220ms ease;
+}
+
+.ba:hover img {
+  transform: scale(1.03);
+}
