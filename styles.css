@@ -319,3 +319,27 @@ body{
   min-height: 900px;
 }
 
+/* HERO BACKGROUND IMAGE */
+.hero-bg {
+  position: relative;
+  min-height: 90vh;
+  background: url("/images/homepage.jpg") center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* DARK OVERLAY (70% transparency effect) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* 70% transparency */
+  z-index: 1;
+}
+
+/* CONTENT ABOVE OVERLAY */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
