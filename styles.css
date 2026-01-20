@@ -43,13 +43,6 @@ body{
   z-index: 1;
 }
 
-/* Put page content above the overlays */
-.page{
-  position: relative;
-  z-index: 2;
-}
-
-
 /* Container */
 .container{
   width: min(1100px, calc(100% - 32px));
