@@ -15,7 +15,8 @@
 // CONFIG
 // ==============================
 const GOOGLE_FORM_ENDPOINT =
-  "https://docs.google.com/forms/d/1u8jdamQHqGgSchlyv9S0ZmoJr1-4wRc5Bb9VG4eqriw/formResponse";
+  "https://docs.google.com/forms/d/e/1u8jdamQHqGgSchlyv9S0ZmoJr1-4wRc5Bb9VG4eqriw/formResponse";
+
 
 const ENTRY = {
   fullName: "entry.500061655",
