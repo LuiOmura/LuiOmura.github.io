@@ -53,21 +53,43 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = url;
   }
 
-  async function postToGoogleForm(data) {
-    const fd = new FormData();
-    fd.append(ENTRY.fullName, data.fullName);
-    fd.append(ENTRY.phone,    data.phone);
-    fd.append(ENTRY.email,    data.email);
-    fd.append(ENTRY.zip,      data.zip);
-    fd.append(ENTRY.budget,   data.budget);
-    fd.append(ENTRY.details,  data.details || "");
-
-    await fetch(GOOGLE_FORM_ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      body: fd
-    });
+function postToGoogleForm(data) {
+  // Create hidden iframe target
+  let iframe = document.getElementById("hidden_iframe_gf");
+  if (!iframe) {
+    iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.id = "hidden_iframe_gf";
+    iframe.name = "hidden_iframe_gf";
+    document.body.appendChild(iframe);
   }
+
+  // Create hidden form
+  const f = document.createElement("form");
+  f.action = GOOGLE_FORM_ENDPOINT;
+  f.method = "POST";
+  f.target = "hidden_iframe_gf";
+
+  const add = (name, value) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = name;
+    input.value = value || "";
+    f.appendChild(input);
+  };
+
+  add(ENTRY.fullName, data.fullName);
+  add(ENTRY.phone, data.phone);
+  add(ENTRY.email, data.email);
+  add(ENTRY.zip, data.zip);
+  add(ENTRY.budget, data.budget);
+  add(ENTRY.details, data.details || "");
+
+  document.body.appendChild(f);
+  f.submit();
+  f.remove();
+}
+
 
   if (!form) {
     console.error("Form not found. Check: <form id='quoteForm'> exists in HTML.");
