@@ -42,7 +42,7 @@
   const form = document.getElementById("quoteForm");
   const statusEl = document.getElementById("quoteStatus");
 
-  function setStatus(msg){ statusEl.textContent = msg; }
+  function setStatus(msg){ if (statusEl) statusE1.textContent = msg; }
 
   function buildEmailBody(data){
     const lines = [
@@ -56,11 +56,7 @@
       "",
       "Project Details:",
       data.details ? data.details : "(not provided)",
-      "",
-      "Photos:",
-      data.photoName ? `Visitor selected: ${data.photoName} (please attach in this email)` : "(not provided)"
-    ];
-    return lines.join("\n");
+      
   }
 
   function openMailDraft(subject, body){
@@ -94,8 +90,9 @@
     });
   }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  if (form) {
+  form.addEventListener("submit", async (e) => {e.preventDefault();
+  }
 
     const fullName = document.getElementById("fullName").value.trim();
     const phone    = document.getElementById("phone").value.trim();
@@ -110,7 +107,7 @@
       return;
     }
 
-    const payload = { fullName, phone, email, zip, budget, details, photoName };
+    const payload = { fullName, phone, email, zip, budget, details, };
 
     try {
       setStatus("Submitting…");
