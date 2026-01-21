@@ -94,9 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       setStatus("Submitting…");
-      await postToGoogleForm(payload);
+      const subject = `Quote Request — ${fullName} (${zip})`;
+      openMailDraft(subject, buildEmailBody(payload));
+      
+      // Send to Google Form in background (don’t await)
+      postToGoogleForm(payload).catch(console.error);
 
-      openMailDraft(`Quote Request — ${fullName} (${zip})`, buildEmailBody(payload));
 
       setStatus("Submitted! Your email draft should open now.");
       form.reset();
