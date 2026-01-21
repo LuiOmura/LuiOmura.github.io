@@ -1,4 +1,4 @@
-console.log("Quote script loaded");
+console.log("Quote script loaded ✅");
 
 (() => {
   const setYear = () => {
