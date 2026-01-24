@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === CONFIG: Google Form POST endpoint (must be /forms/d/<ID>/formResponse) ===
   const GOOGLE_FORM_ENDPOINT =
-    "https://docs.google.com/forms/d/e/1FAIpQLSdmQCnaL1LxI5rPXo83IvYppoxIrL8Ztq2pUKsTZcSMw_TxoQ/viewform?usp=dialog";
+    "https://docs.google.com/forms/d/e/1FAIpQLSdmQCnaL1LxI5rPXo83IvYppoxIrL8Ztq2pUKsTZcSMw_TxoQ/formResponse";
 
   // === Map your site fields to Google Form entry IDs ===
   // IMPORTANT: Confirm these match your form's fields.
@@ -61,14 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
       f.appendChild(input);
     };
 
-    add(ENTRY.FirstName, data.fullName);
-    add(ENTRY.LastName, data.fullName);
-    add(ENTRY.PhoneNumber, data.phone);
-    add(ENTRY.Email, data.email);
-    add(ENTRY.ZipCode, data.zip);
-    add(ENTRY.Project, data.project);
-    add(ENTRY.Budget, data.budget);
-    add(ENTRY.ProjectDetails, data.details || "");
+    add(ENTRY.FirstName, data.FirstName);
+    add(ENTRY.LastName, data.LastName);
+    add(ENTRY.PhoneNumber, data.PhoneNumber);
+    add(ENTRY.Email, data.Email);
+    add(ENTRY.ZipCode, data.ZipCode);
+    add(ENTRY.Project, data.Project);
+    add(ENTRY.Budget, data.Budget);
+    add(ENTRY.ProjectDetails, data.ProjectDetails || "");
 
     document.body.appendChild(f);
     f.submit();
@@ -83,14 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const FirstName = document.getElementById("First Name")?.value.trim() || "";
-    const LastName = document.getElementById("Last Name")?.value.trim() || "";
-    const PhoneNumber    = document.getElementById("Phone Number")?.value.trim() || "";
+    const FirstName = document.getElementById("FirstName")?.value.trim() || "";
+    const LastName = document.getElementById("LastName")?.value.trim() || "";
+    const PhoneNumber    = document.getElementById("Phone")?.value.trim() || "";
     const Email    = document.getElementById("Email")?.value.trim() || "";
-    const ZipCode      = document.getElementById("Zip Code")?.value.trim() || "";
+    const ZipCode      = document.getElementById("Zip")?.value.trim() || "";
     const Project  = document.getElementById("Project")?.value || "";
     const Budget   = document.getElementById("Budget")?.value || "";
-    const ProjectDetails  = document.getElementById("Project Details")?.value.trim() || "";
+    const ProjectDetails  = document.getElementById("Details")?.value.trim() || "";
 
     // Basic required validation (matches your * fields)
     if (!FirstName || !LastName || !PhoneNumber || !Email || !ZipCode || !Project || !Budget) {
