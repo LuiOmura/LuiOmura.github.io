@@ -61,6 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
       f.appendChild(input);
     };
 
+    // REQUIRED by Google Forms 
+    add("fvv", "1"); 
+    add("pageHistory", "0")
+    
     add(ENTRY.FirstName, data.FirstName);
     add(ENTRY.LastName, data.LastName);
     add(ENTRY.PhoneNumber, data.PhoneNumber);
@@ -70,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     add(ENTRY.Budget, data.Budget);
     add(ENTRY.ProjectDetails, data.ProjectDetails || "");
 
+    
     document.body.appendChild(f);
     f.submit();
     f.remove();
