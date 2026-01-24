@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // REQUIRED by Google Forms 
     add("fvv", "1"); 
-    add("pageHistory", "0")
+    add("pageHistory", "0");
     
     add(ENTRY.FirstName, data.FirstName);
     add(ENTRY.LastName, data.LastName);
