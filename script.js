@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const ENTRY = {
     FirstName: "entry.500061655",
     LastName: "entry.231511378",
-    phone:    "entry.1378254976",
-    email:    "entry.849408615",
-    zip:      "entry.1664953559",
-    project:  "entry.604523920",
-    budget:   "entry.1119469797",
-    details:  "entry.892290026"
+    PhoneNumber:    "entry.1378254976",
+    Email:    "entry.849408615",
+    ZipCode:      "entry.1664953559",
+    Project:  "entry.604523920",
+    Budget:   "entry.1119469797",
+    ProjectDetails:  "entry.892290026"
   };
 
   const form = document.getElementById("quoteForm");
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     add(ENTRY.FirstName, data.fullName);
     add(ENTRY.LastName, data.fullName);
-    add(ENTRY.phone, data.phone);
-    add(ENTRY.email, data.email);
-    add(ENTRY.zip, data.zip);
-    add(ENTRY.project, data.project);
-    add(ENTRY.budget, data.budget);
-    add(ENTRY.details, data.details || "");
+    add(ENTRY.PhoneNumber, data.phone);
+    add(ENTRY.Email, data.email);
+    add(ENTRY.ZipCode, data.zip);
+    add(ENTRY.Project, data.project);
+    add(ENTRY.Budget, data.budget);
+    add(ENTRY.ProjectDetails, data.details || "");
 
     document.body.appendChild(f);
     f.submit();
@@ -83,22 +83,22 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const FirstName = document.getElementById("FirstName")?.value.trim() || "";
-    const LastName = document.getElementById("LastName")?.value.trim() || "";
-    const phone    = document.getElementById("phone")?.value.trim() || "";
-    const email    = document.getElementById("email")?.value.trim() || "";
-    const zip      = document.getElementById("zip")?.value.trim() || "";
-    const project  = document.getElementById("project")?.value || "";
-    const budget   = document.getElementById("budget")?.value || "";
-    const details  = document.getElementById("details")?.value.trim() || "";
+    const FirstName = document.getElementById("First Name")?.value.trim() || "";
+    const LastName = document.getElementById("Last Name")?.value.trim() || "";
+    const PhoneNumber    = document.getElementById("Phone Number")?.value.trim() || "";
+    const Email    = document.getElementById("Email")?.value.trim() || "";
+    const ZipCode      = document.getElementById("Zip Code")?.value.trim() || "";
+    const Project  = document.getElementById("Project")?.value || "";
+    const Budget   = document.getElementById("Budget")?.value || "";
+    const ProjectDetails  = document.getElementById("Project Details")?.value.trim() || "";
 
     // Basic required validation (matches your * fields)
-    if (!FirstName || !FirstName || !phone || !email || !zip || !project || !budget) {
+    if (!FirstName || !LastName || !PhoneNumber || !Email || !ZipCode || !Project || !Budget) {
       setStatus("Please fill in all required fields (*) before submitting.");
       return;
     }
 
-    const payload = { FirstName, LastName, phone, email, zip, project, budget, details };
+    const payload = { FirstName, LastName, PhoneNumber, Email, ZipCode, Project, Budget, ProjectDetails };
 
     try {
       setSubmitting(true);
