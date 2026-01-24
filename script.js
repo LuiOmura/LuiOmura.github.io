@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     add("fvv", "1");
     add("pageHistory", "0");
-    add("fbzx", FBZX);
+    add("fbzx", FBZX); // ✅ REQUIRED
 
     add(ENTRY.FirstName, data.FirstName);
     add(ENTRY.LastName, data.LastName);
